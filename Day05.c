@@ -1,34 +1,38 @@
 //Q1.Write a program to calculate simple and compound interest for given principal, rate, and time.
 
 #include <stdio.h>
-#include <math.h>  // for pow() function
 
 int main() {
-    float principal, rate, time;
-    float simpleInterest, compoundInterest, amount;
+    double principal, rate, time;
+    double simpleInterest, compoundInterest;
+    double amount = 1.0;
+    int i;
 
-    
-    printf("Enter Principal: ");
-    scanf("%f", &principal);
+  
+    printf("Enter Principal amount: ");
+    scanf("%lf", &principal);
 
-    printf("Enter Rate of Interest: ");
-    scanf("%f", &rate);
+    printf("Enter Rate of interest (in %%): ");
+    scanf("%lf", &rate);
 
     printf("Enter Time (in years): ");
-    scanf("%f", &time);
+    scanf("%lf", &time);
 
     
     simpleInterest = (principal * rate * time) / 100;
 
     
-    amount = principal * pow((1 + rate / 100), time);
-    compoundInterest = amount - principal;
+    for(i = 0; i < (int)time; i++) {
+        amount *= (1 + rate / 100);
+    }
+    compoundInterest = principal * amount - principal;
 
-    
-    printf("\nSimple Interest = %.2f", simpleInterest);
-    printf("\nCompound Interest = %.2f\n", compoundInterest);
+
+    printf("\nSimple Interest = %.2lf\n", simpleInterest);
+    printf("Compound Interest = %.2lf\n", compoundInterest);
 
     return 0;
+
 }
 
 // Q2.Write a program to input time in seconds and convert it to hours:minutes:seconds format.
@@ -48,4 +52,5 @@ int main() {
     seconds = seconds % 60;            // remaining seconds
     return 0;
 }
+
 
