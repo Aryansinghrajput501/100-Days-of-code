@@ -1,0 +1,32 @@
+
+/* Q27 (Loops without Arrays/Strings)
+Write a program to print the sum of the first n odd numbers. */
+
+#include <stdio.h>
+
+int main(){
+    int n, var = 1, requiredsum = 0;
+    printf("Enter the value of n: \n");
+    scanf("%d", &n);
+    for (var=1; var <=n; var++){
+        requiredsum = requiredsum + (2*var - 1);
+    }
+    printf("The sum of first %d odd numbers is: %d\n", n, requiredsum);
+    return 0;
+}
+
+/*Q28 (Loops without Arrays/Strings)
+Write a program to print the product of even numbers from 1 to n. */
+
+#include <stdio.h>
+
+int main(){
+    int n, var, prod = 1;
+    printf("Enter the value of n: \n");
+    scanf("%d", &n);
+    for (var=2; var<=n; var = var + 2){
+        prod = prod * var;
+    }
+    printf("The required product is: %d", prod);
+    return 0;
+}
